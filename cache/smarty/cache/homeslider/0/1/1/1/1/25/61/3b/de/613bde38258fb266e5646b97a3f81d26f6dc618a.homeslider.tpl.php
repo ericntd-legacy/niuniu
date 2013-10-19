@@ -1,4 +1,4 @@
-<?php /*%%SmartyHeaderCode:12238340435250410a1cc625-17958186%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:471892056525a1c0766bd62-77505111%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -9,49 +9,33 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '12238340435250410a1cc625-17958186',
-  'variables' => 
-  array (
-    'homeslider' => 0,
-    'homeslider_slides' => 0,
-    'slide' => 0,
-  ),
-  'has_nocache_code' => false,
+  'nocache_hash' => '471892056525a1c0766bd62-77505111',
   'version' => 'Smarty-3.1.14',
-  'unifunc' => 'content_5250410a31daa9_59524983',
+  'unifunc' => 'content_5260acab603824_43380183',
+  'has_nocache_code' => false,
   'cache_lifetime' => 31536000,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5250410a31daa9_59524983')) {function content_5250410a31daa9_59524983($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5260acab603824_43380183')) {function content_5260acab603824_43380183($_smarty_tpl) {?>
 <!-- Module HomeSlider -->
 <script type="text/javascript">
 			var homeslider_loop = true;
-	var homeslider_speed = 500;
+	var homeslider_speed = 600;
 var homeslider_pause = 3000;
 </script>
 <ul id="homeslider">
 			<li>
-			<a href="http://www.prestashop.com" title="This is a sample picture">
-			<img src="/niuniu/modules/homeslider/images/sample-1.jpg" alt="sample-1" height="300" width="535" />
+			<a href="http://54.254.153.152/niuniu/index.php?id_product=8&amp;controller=product&amp;id_lang=1" title="description">
+			<img src="/modules/homeslider/images/9d02e3e38e396044fee729365c9dc594.jpeg" alt="legend" height="500" width="940" />
 			</a>
 		</li>
 				<li>
-			<a href="http://www.prestashop.com" title="This is a sample picture">
-			<img src="/niuniu/modules/homeslider/images/sample-2.jpg" alt="sample-2" height="300" width="535" />
+			<a href="http://54.254.153.152/niuniu/index.php?id_product=8&amp;controller=product&amp;id_lang=1" title="description">
+			<img src="/modules/homeslider/images/4de646ffa27b603a101dbdbe732098a3.jpeg" alt="legend" height="500" width="940" />
 			</a>
 		</li>
 				<li>
-			<a href="http://www.prestashop.com" title="This is a sample picture">
-			<img src="/niuniu/modules/homeslider/images/sample-3.jpg" alt="sample-3" height="300" width="535" />
-			</a>
-		</li>
-				<li>
-			<a href="http://www.prestashop.com" title="This is a sample picture">
-			<img src="/niuniu/modules/homeslider/images/sample-4.jpg" alt="sample-4" height="300" width="535" />
-			</a>
-		</li>
-				<li>
-			<a href="http://www.prestashop.com" title="This is a sample picture">
-			<img src="/niuniu/modules/homeslider/images/sample-5.jpg" alt="sample-5" height="300" width="535" />
+			<a href="http://54.254.153.152/niuniu/index.php?id_product=10&amp;controller=product&amp;id_lang=1" title="">
+			<img src="/modules/homeslider/images/b938d5f191b85008a7c645896cf4e6a2.jpeg" alt="legend" height="500" width="940" />
 			</a>
 		</li>
 	</ul>

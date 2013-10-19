@@ -1,4 +1,4 @@
-<?php /*%%SmartyHeaderCode:56105080052504109b0cc56-91260164%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1236726716525a1a5a9d3838-73994671%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -9,22 +9,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '56105080052504109b0cc56-91260164',
-  'variables' => 
-  array (
-    'adv_link' => 0,
-    'adv_title' => 0,
-    'image' => 0,
-  ),
-  'has_nocache_code' => false,
+  'nocache_hash' => '1236726716525a1a5a9d3838-73994671',
   'version' => 'Smarty-3.1.14',
-  'unifunc' => 'content_52504109b278f1_37344894',
+  'unifunc' => 'content_5260aca7b7bdc9_82681775',
+  'has_nocache_code' => false,
   'cache_lifetime' => 31536000,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_52504109b278f1_37344894')) {function content_52504109b278f1_37344894($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5260aca7b7bdc9_82681775')) {function content_5260aca7b7bdc9_82681775($_smarty_tpl) {?>
 <!-- MODULE Block advertising -->
 <div class="advertising_block">
-	<a href="http://www.prestashop.com" title="PrestaShop"><img src="http://54.254.153.152/niuniu/modules/blockadvertising/advertising.jpg" alt="PrestaShop" title="PrestaShop" width="155"  height="163" /></a>
+	<a href="http://www.prestashop.com" title="PrestaShop"><img src="http://beta.niuniuboutique.com/modules/blockadvertising/advertising.jpg" alt="PrestaShop" title="PrestaShop" width="155"  height="163" /></a>
 </div>
 <!-- /MODULE Block advertising -->
 <?php }} ?>

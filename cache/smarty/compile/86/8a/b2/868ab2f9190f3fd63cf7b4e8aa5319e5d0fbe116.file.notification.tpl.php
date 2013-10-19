@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2013-10-06 00:42:09
+<?php /* Smarty version Smarty-3.1.14, created on 2013-10-13 11:58:11
          compiled from "/var/www/html/niuniu/modules/gamification/views/templates/hook/notification.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:138986603452504161419e26-15192215%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1953499780525a1a53107175-54825015%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '138986603452504161419e26-15192215',
+  'nocache_hash' => '1953499780525a1a53107175-54825015',
   'function' => 
   array (
   ),
@@ -27,9 +27,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.14',
-  'unifunc' => 'content_525041615361b5_40091776',
+  'unifunc' => 'content_525a1a53203ca4_63440815',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_525041615361b5_40091776')) {function content_525041615361b5_40091776($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_escape')) include '/var/www/html/niuniu/tools/smarty/plugins/modifier.escape.php';
+<?php if ($_valid && !is_callable('content_525a1a53203ca4_63440815')) {function content_525a1a53203ca4_63440815($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_escape')) include '/var/www/html/niuniu/tools/smarty/plugins/modifier.escape.php';
 ?><script>
 	var current_id_tab = <?php echo intval($_smarty_tpl->tpl_vars['current_id_tab']->value);?>
 ;
