@@ -1,45 +1,47 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2013-10-13 11:58:18
+<?php /* Smarty version Smarty-3.1.14, created on 2013-10-24 22:32:41
          compiled from "/var/www/html/niuniu/themes/fashionbird/modules/blockmanufacturer/blockmanufacturer.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2093023827525a1a5a6aeb27-15177008%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:19008389252692f89041149-52421920%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '99ba859f89f5356943f5cdb2525e5269c877b10a' => 
     array (
       0 => '/var/www/html/niuniu/themes/fashionbird/modules/blockmanufacturer/blockmanufacturer.tpl',
-      1 => 1373170726,
+      1 => 1377677663,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2093023827525a1a5a6aeb27-15177008',
+  'nocache_hash' => '19008389252692f89041149-52421920',
   'function' => 
   array (
   ),
   'variables' => 
   array (
     'display_link_manufacturer' => 0,
+    'link' => 0,
     'manufacturers' => 0,
     'text_list' => 0,
     'text_list_nb' => 0,
     'manufacturer' => 0,
-    'link' => 0,
     'form_list' => 0,
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.14',
-  'unifunc' => 'content_525a1a5a769980_44890389',
+  'unifunc' => 'content_52692f891951c4_55455122',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_525a1a5a769980_44890389')) {function content_525a1a5a769980_44890389($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_escape')) include '/var/www/html/niuniu/tools/smarty/plugins/modifier.escape.php';
+<?php if ($_valid && !is_callable('content_52692f891951c4_55455122')) {function content_52692f891951c4_55455122($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_escape')) include '/var/www/html/niuniu/tools/smarty/plugins/modifier.escape.php';
 ?>
 
 <!-- Block manufacturers module -->
-<section id="manufacturers_block_left" class="block blockmanufacturer column_box">
-	<h4 class="title_block"><?php if ($_smarty_tpl->tpl_vars['display_link_manufacturer']->value){?><span><?php }?><?php echo smartyTranslate(array('s'=>'Manufacturers','mod'=>'blockmanufacturer'),$_smarty_tpl);?>
-<?php if ($_smarty_tpl->tpl_vars['display_link_manufacturer']->value){?></span><?php }?><span class="column_icon_toggle"></span></h4>
-	<div class="block_content toggle_content">
+<div id="manufacturers_block_left" class="block blockmanufacturer">
+	<h4 class="title_block"><?php if ($_smarty_tpl->tpl_vars['display_link_manufacturer']->value){?><a href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['link']->value->getPageLink('manufacturer'), ENT_QUOTES, 'UTF-8', true);?>
+" title="<?php echo smartyTranslate(array('s'=>'Manufacturers','mod'=>'blockmanufacturer'),$_smarty_tpl);?>
+"><?php }?><?php echo smartyTranslate(array('s'=>'Manufacturers','mod'=>'blockmanufacturer'),$_smarty_tpl);?>
+<?php if ($_smarty_tpl->tpl_vars['display_link_manufacturer']->value){?></a><?php }?></h4>
+	<div class="block_content">
 <?php if ($_smarty_tpl->tpl_vars['manufacturers']->value){?>
 	<?php if ($_smarty_tpl->tpl_vars['text_list']->value){?>
-	<ul class="store_list">
+	<ul class="bullet">
 	<?php  $_smarty_tpl->tpl_vars['manufacturer'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['manufacturer']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['manufacturers']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
  $_smarty_tpl->tpl_vars['manufacturer']->total= $_smarty_tpl->_count($_from);
@@ -57,10 +59,10 @@ $_smarty_tpl->tpl_vars['manufacturer']->_loop = true;
  $_smarty_tpl->tpl_vars['smarty']->value['foreach']['manufacturer_list']['last'] = $_smarty_tpl->tpl_vars['manufacturer']->last;
 ?>
 		<?php if ($_smarty_tpl->getVariable('smarty')->value['foreach']['manufacturer_list']['iteration']<=$_smarty_tpl->tpl_vars['text_list_nb']->value){?>
-		<li class="<?php if ($_smarty_tpl->getVariable('smarty')->value['foreach']['manufacturer_list']['last']){?>last_item<?php }elseif($_smarty_tpl->getVariable('smarty')->value['foreach']['manufacturer_list']['first']){?>first_item<?php }else{ ?>item<?php }?>"><a href="<?php echo $_smarty_tpl->tpl_vars['link']->value->getmanufacturerLink($_smarty_tpl->tpl_vars['manufacturer']->value['id_manufacturer'],$_smarty_tpl->tpl_vars['manufacturer']->value['link_rewrite']);?>
+		<li class="<?php if ($_smarty_tpl->getVariable('smarty')->value['foreach']['manufacturer_list']['last']){?>last_item<?php }elseif($_smarty_tpl->getVariable('smarty')->value['foreach']['manufacturer_list']['first']){?>first_item<?php }else{ ?>item<?php }?>"><a href="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['link']->value->getmanufacturerLink($_smarty_tpl->tpl_vars['manufacturer']->value['id_manufacturer'],$_smarty_tpl->tpl_vars['manufacturer']->value['link_rewrite']), ENT_QUOTES, 'UTF-8', true);?>
 " title="<?php echo smartyTranslate(array('s'=>'Learn more about','mod'=>'blockmanufacturer'),$_smarty_tpl);?>
  <?php echo $_smarty_tpl->tpl_vars['manufacturer']->value['name'];?>
-"><i class="icon-ok"></i><?php echo smarty_modifier_escape($_smarty_tpl->tpl_vars['manufacturer']->value['name'], 'htmlall', 'UTF-8');?>
+"><?php echo smarty_modifier_escape($_smarty_tpl->tpl_vars['manufacturer']->value['name'], 'htmlall', 'UTF-8');?>
 </a></li>
 		<?php }?>
 	<?php } ?>
@@ -78,7 +80,7 @@ $_smarty_tpl->tpl_vars['manufacturer']->_loop = true;
 foreach ($_from as $_smarty_tpl->tpl_vars['manufacturer']->key => $_smarty_tpl->tpl_vars['manufacturer']->value){
 $_smarty_tpl->tpl_vars['manufacturer']->_loop = true;
 ?>
-					<option value="<?php echo $_smarty_tpl->tpl_vars['link']->value->getmanufacturerLink($_smarty_tpl->tpl_vars['manufacturer']->value['id_manufacturer'],$_smarty_tpl->tpl_vars['manufacturer']->value['link_rewrite']);?>
+					<option value="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['link']->value->getmanufacturerLink($_smarty_tpl->tpl_vars['manufacturer']->value['id_manufacturer'],$_smarty_tpl->tpl_vars['manufacturer']->value['link_rewrite']), ENT_QUOTES, 'UTF-8', true);?>
 "><?php echo smarty_modifier_escape($_smarty_tpl->tpl_vars['manufacturer']->value['name'], 'htmlall', 'UTF-8');?>
 </option>
 				<?php } ?>
@@ -91,6 +93,6 @@ $_smarty_tpl->tpl_vars['manufacturer']->_loop = true;
 </p>
 <?php }?>
 	</div>
-</section>
+</div>
 <!-- /Block manufacturers module -->
 <?php }} ?>

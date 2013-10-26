@@ -24,15 +24,15 @@
 *}
 
 <!-- Block manufacturers module -->
-<section id="manufacturers_block_left" class="block blockmanufacturer column_box">
-	<h4 class="title_block">{if $display_link_manufacturer}<span>{/if}{l s='Manufacturers' mod='blockmanufacturer'}{if $display_link_manufacturer}</span>{/if}<span class="column_icon_toggle"></span></h4>
-	<div class="block_content toggle_content">
+<div id="manufacturers_block_left" class="block blockmanufacturer">
+	<h4 class="title_block">{if $display_link_manufacturer}<a href="{$link->getPageLink('manufacturer')|escape:'html'}" title="{l s='Manufacturers' mod='blockmanufacturer'}">{/if}{l s='Manufacturers' mod='blockmanufacturer'}{if $display_link_manufacturer}</a>{/if}</h4>
+	<div class="block_content">
 {if $manufacturers}
 	{if $text_list}
-	<ul class="store_list">
+	<ul class="bullet">
 	{foreach from=$manufacturers item=manufacturer name=manufacturer_list}
 		{if $smarty.foreach.manufacturer_list.iteration <= $text_list_nb}
-		<li class="{if $smarty.foreach.manufacturer_list.last}last_item{elseif $smarty.foreach.manufacturer_list.first}first_item{else}item{/if}"><a href="{$link->getmanufacturerLink($manufacturer.id_manufacturer, $manufacturer.link_rewrite)}" title="{l s='Learn more about' mod='blockmanufacturer'} {$manufacturer.name}"><i class="icon-ok"></i>{$manufacturer.name|escape:'htmlall':'UTF-8'}</a></li>
+		<li class="{if $smarty.foreach.manufacturer_list.last}last_item{elseif $smarty.foreach.manufacturer_list.first}first_item{else}item{/if}"><a href="{$link->getmanufacturerLink($manufacturer.id_manufacturer, $manufacturer.link_rewrite)|escape:'html'}" title="{l s='Learn more about' mod='blockmanufacturer'} {$manufacturer.name}">{$manufacturer.name|escape:'htmlall':'UTF-8'}</a></li>
 		{/if}
 	{/foreach}
 	</ul>
@@ -43,7 +43,7 @@
 				<select id="manufacturer_list" onchange="autoUrl('manufacturer_list', '');">
 					<option value="0">{l s='All manufacturers' mod='blockmanufacturer'}</option>
 				{foreach from=$manufacturers item=manufacturer}
-					<option value="{$link->getmanufacturerLink($manufacturer.id_manufacturer, $manufacturer.link_rewrite)}">{$manufacturer.name|escape:'htmlall':'UTF-8'}</option>
+					<option value="{$link->getmanufacturerLink($manufacturer.id_manufacturer, $manufacturer.link_rewrite)|escape:'html'}">{$manufacturer.name|escape:'htmlall':'UTF-8'}</option>
 				{/foreach}
 				</select>
 			</p>
@@ -53,5 +53,5 @@
 	<p>{l s='No manufacturer' mod='blockmanufacturer'}</p>
 {/if}
 	</div>
-</section>
+</div>
 <!-- /Block manufacturers module -->

@@ -23,13 +23,14 @@
 *  International Registered Trademark & Property of PrestaShop SA
 *}
 
-<section id="stores_block_left" class="block  column_box">
-	<h4><span>{l s='Our store(s)!' mod='blockstore'}</span><span class="column_icon_toggle"></span></h4>
-	<div class="block_content blockstore toggle_content">
-		<p class="store_image"><a href="{$link->getPageLink('stores')}" title="{l s='Our stores' mod='blockstore'}"><img src="{$module_dir}{$store_img}" alt="{l s='Our stores' mod='blockstore'}"  /></a></p>
+<!-- Block stores module -->
+<div id="stores_block_left" class="block">
+	<h4 class="title_block"><a href="{$link->getPageLink('stores')|escape:'html'}" title="{l s='Our store(s)!' mod='blockstore'}">{l s='Our store(s)!' mod='blockstore'}</a></h4>
+	<div class="block_content blockstore">
+		<p class="store_image"><a href="{$link->getPageLink('stores')|escape:'html'}" title="{l s='Our store(s)!' mod='blockstore'}"><img src="{$module_dir}{$store_img}" alt="{l s='Our store(s)!' mod='blockstore'}" width="174" height="115" /></a></p>
 		<p>
-			<a class="button" href="{$link->getPageLink('stores')}" title="{l s='Our stores' mod='blockstore'}">{l s='Discover our store(s)d!' mod='blockstore'}</a>
+			<a href="{$link->getPageLink('stores')|escape:'html'}" title="{l s='Our store(s)!' mod='blockstore'}">&raquo; {l s='Discover our store(s)!' mod='blockstore'}</a>
 		</p>
 	</div>
-</section>
+</div>
 <!-- /Block stores module -->

@@ -33,17 +33,14 @@ param_product_url = '#{$param_product_url}';
 param_product_url = '';
 {/if}
 </script>
-
-<section id="layered_block_left" class="column_box block">
-	<h4 class="toggle"><span>{l s='Filter' mod='blocklayered'}</span> <span class="column_icon_toggle"></span></h4>
-	<div class="block_content toggle_content">
+<div id="layered_block_left" class="block">
+	<h4 class="title_block">{l s='Catalog' mod='blocklayered'}</h4>
+	<div class="block_content">
 		<form action="#" id="layered_form">
 			<div>
 				{if isset($selected_filters) && $n_filters > 0}
-				<div id="enabled_filters" class="titled_box">
-                   <h2 class="clearfix">
-					<span class="layered_subtitle">{l s='Enabled filters:' mod='blocklayered'}</span>
-                    </h2>
+				<div id="enabled_filters">
+					<span class="layered_subtitle" style="float: none;">{l s='Enabled filters:' mod='blocklayered'}</span>
 					<ul>
 					{foreach from=$selected_filters key=filter_type item=filter_values}
 						{foreach from=$filter_values key=filter_key item=filter_value name=f_values}
@@ -85,19 +82,17 @@ param_product_url = '';
 						{if isset($filter.slider)}
 						<div class="layered_{$filter.type}" style="display: none;">
 						{else}
-						<div class="titled_box">
+						<div>
 						{/if}
-                        <h2 class="clearfix">
 						<span class="layered_subtitle">{$filter.name|escape:html:'UTF-8'}</span>
 						<span class="layered_close"><a href="#" rel="ul_layered_{$filter.type}_{$filter.id_key}">v</a></span>
-						</h2>
-                        <div class="clear"></div>
-						<ul id="ul_layered_{$filter.type}_{$filter.id_key}" class="store_list_filter ul_filter clearfix">
+						<div class="clear"></div>
+						<ul id="ul_layered_{$filter.type}_{$filter.id_key}">
 						{if !isset($filter.slider)}
 							{if $filter.filter_type == 0}
 								{foreach from=$filter.values key=id_value item=value name=fe}
 									{if $value.nbr || !$hide_0_values}
-									<li class="nomargin {if $smarty.foreach.fe.index >= $filter.filter_show_limit}hiddable{/if}  clearfix">
+									<li class="nomargin {if $smarty.foreach.fe.index >= $filter.filter_show_limit}hiddable{/if}">
 										{if isset($filter.is_color_group) && $filter.is_color_group}
 											<input class="color-option {if isset($value.checked) && $value.checked}on{/if} {if !$value.nbr}disable{/if}" type="button" name="layered_{$filter.type_lite}_{$id_value}" rel="{$id_value}_{$filter.id_key}" id="layered_id_attribute_group_{$id_value}" {if !$value.nbr}disabled="disabled"{/if} style="background: {if isset($value.color)}{if file_exists($smarty.const._PS_ROOT_DIR_|cat:"/img/co/$id_value.jpg")}url(img/co/{$id_value}.jpg){else}{$value.color}{/if}{else}#CCC{/if};" />
 											{if isset($value.checked) && $value.checked}<input type="hidden" name="layered_{$filter.type_lite}_{$id_value}" value="{$id_value}" />{/if}
@@ -192,9 +187,9 @@ param_product_url = '';
 							{else}
 								{if $filter.filter_type == 1}
 								<li class="nomargin">
-									<span>{l s='From' mod='blocklayered'}</span> <input class="layered_{$filter.type}_range layered_input_range_min layered_input_range" id="layered_{$filter.type}_range_min" type="text" value="{$filter.values[0]}"/>
+									{l s='From' mod='blocklayered'} <input class="layered_{$filter.type}_range layered_input_range_min layered_input_range" id="layered_{$filter.type}_range_min" type="text" value="{$filter.values[0]}"/>
 									<span class="layered_{$filter.type}_range_unit">{$filter.unit}</span>
-									<span>{l s='to' mod='blocklayered'}</span> <input class="layered_{$filter.type}_range layered_input_range_max layered_input_range" id="layered_{$filter.type}_range_max" type="text" value="{$filter.values[1]}"/>
+									{l s='to' mod='blocklayered'} <input class="layered_{$filter.type}_range layered_input_range_max layered_input_range" id="layered_{$filter.type}_range_max" type="text" value="{$filter.values[1]}"/>
 									<span class="layered_{$filter.type}_range_unit">{$filter.unit}</span>
 									<span class="layered_{$filter.type}_format" style="display:none;">{$filter.format}</span>
 									<script type="text/javascript">
@@ -207,7 +202,7 @@ param_product_url = '';
 								{else}
 								{foreach from=$filter.list_of_values  item=values}
 									<li class="nomargin {if $filter.values[1] == $values[1] && $filter.values[0] == $values[0]}layered_list_selected{/if} layered_list" onclick="$('#layered_{$filter.type}_range_min').val({$values[0]});$('#layered_{$filter.type}_range_max').val({$values[1]});reloadContent();">
-										{l s='From' mod='blocklayered'} {$values[0]} {$filter.unit} {l s='to' mod='blocklayered'} {$values[1]} {$filter.unit}
+										- {l s='From' mod='blocklayered'} {$values[0]} {$filter.unit} {l s='to' mod='blocklayered'} {$values[1]} {$filter.unit}
 									</li>
 								{/foreach}
 								<li style="display: none;">
@@ -243,20 +238,20 @@ param_product_url = '';
 			{/foreach}
 		</form>
 	</div>
-	<div id="layered_ajax_loader" style="display: none; text-align:center;">
-		<p style="position:absolute; left:45%; top:20px;"><img src="{$img_dir}loader-filter.gif" alt="" /></p>
+	<div id="layered_ajax_loader" style="display: none;">
+		<p><img src="{$img_ps_dir}loader.gif" alt="" /><br />{l s='Loading...' mod='blocklayered'}</p>
 	</div>
-	</section>
+</div>
 {else}
-<section id="layered_block_left" class="column_box">
+<div id="layered_block_left" class="block">
 	<div class="block_content">
 		<form action="#" id="layered_form">
 			<input type="hidden" name="id_category_layered" value="{$id_category_layered}" />
 		</form>
 	</div>
-	<div  style="display: none;">
-		<p style="position:absolute; left:45%; top:20px;"><img src="{$img_dir}loader-filter.gif" alt="" /></p>
+	<div style="display: none;">
+		<p style=""><img src="{$img_ps_dir}loader.gif" alt="" /><br />{l s='Loading...' mod='blocklayered'}</p>
 	</div>
-	</section>
+</div>
 {/if}
 <!-- /Block layered navigation module -->

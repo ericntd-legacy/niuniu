@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2013-10-13 11:58:21
+<?php /* Smarty version Smarty-3.1.14, created on 2013-10-24 22:32:46
          compiled from "/var/www/html/niuniu/themes/fashionbird/index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:91352492525a1a5da72309-78789966%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1866181652692f8ed552e3-86479416%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '91352492525a1a5da72309-78789966',
+  'nocache_hash' => '1866181652692f8ed552e3-86479416',
   'function' => 
   array (
   ),
@@ -21,9 +21,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.14',
-  'unifunc' => 'content_525a1a5da78cb5_65522719',
+  'unifunc' => 'content_52692f8eda4f38_84126065',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_525a1a5da78cb5_65522719')) {function content_525a1a5da78cb5_65522719($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_52692f8eda4f38_84126065')) {function content_52692f8eda4f38_84126065($_smarty_tpl) {?>
 
 <?php echo $_smarty_tpl->tpl_vars['HOOK_HOME']->value;?>
 

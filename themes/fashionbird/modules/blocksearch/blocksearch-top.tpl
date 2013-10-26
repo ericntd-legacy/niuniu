@@ -25,7 +25,7 @@
 <!-- block seach mobile -->
 {if isset($hook_mobile)}
 <div class="input_search" data-role="fieldcontain">
-	<form method="get" action="{$link->getPageLink('search')}" id="searchbox">
+	<form method="get" action="{$link->getPageLink('search')|escape:'html'}" id="searchbox">
 		<input type="hidden" name="controller" value="search" />
 		<input type="hidden" name="orderby" value="position" />
 		<input type="hidden" name="orderway" value="desc" />
@@ -34,19 +34,18 @@
 </div>
 {else}
 <!-- Block search module TOP -->
-<section id="search_block_top" class="header-box">
-	<form method="get" action="{$link->getPageLink('search')}" id="searchbox">
+<div id="search_block_top">
+	<form method="get" action="{$link->getPageLink('search')|escape:'html'}" id="searchbox">
 		<p>
-			<label for="search_query_top">{l s='Search' mod='blocksearch'}</label>
+			<label for="search_query_top"><!-- image on background --></label>
 			<input type="hidden" name="controller" value="search" />
 			<input type="hidden" name="orderby" value="position" />
 			<input type="hidden" name="orderway" value="desc" />
 			<input class="search_query" type="text" id="search_query_top" name="search_query" value="{if isset($smarty.get.search_query)}{$smarty.get.search_query|htmlentities:$ENT_QUOTES:'utf-8'|stripslashes}{/if}" />
-            <a href="javascript:document.getElementById('searchbox').submit();"></a>
-			
-	    </p>
+			<input type="submit" name="submit_search" value="{l s='Search' mod='blocksearch'}" class="button" />
+		</p>
 	</form>
-</section>
-{include file="$tpl_dir/modules/blocksearch/blocksearch-instantsearch.tpl"}
+</div>
+{include file="$self/blocksearch-instantsearch.tpl"}
 {/if}
 <!-- /Block search module TOP -->

@@ -24,9 +24,10 @@
 *}
 
 <!-- Block categories module -->
-<section  id="categories_block_left"  class="column_box block">
-	<h4><span>{l s='Categories' mod='blockcategories'}</span><span class="column_icon_toggle"></span></h4>
-		<ul class="toggle_content tree {if $isDhtml}dhtml{/if} store_list">
+<div id="categories_block_left" class="block">
+	<h4 class="title_block">{l s='Categories' mod='blockcategories'}</h4>
+	<div class="block_content">
+		<ul class="tree {if $isDhtml}dhtml{/if}">
 		{foreach from=$blockCategTree.children item=child name=blockCategTree}
 			{if $smarty.foreach.blockCategTree.last}
 				{include file="$branche_tpl_path" node=$child last='true'}
@@ -42,5 +43,6 @@
 			$('div#categories_block_left ul.dhtml').hide();
 		// ]]>
 		</script>
-</section>
+	</div>
+</div>
 <!-- /Block categories module -->

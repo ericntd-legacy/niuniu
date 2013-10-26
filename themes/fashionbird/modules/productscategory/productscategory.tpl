@@ -22,74 +22,35 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
+
 {if count($categoryProducts) > 0 && $categoryProducts !== false}
-	<section class="page_product_box blockproductscategory">
-		<h3>{$categoryProducts|@count} {l s='other products in the same category:' mod='productscategory'}<span class="icon-toggle"></span></h3>
-    	<div id="block-category-slider" class="carusel-inner responsive  toggle_content">
-        	<ul id="carouselproduct" class="carousel-ul">
+<div class="clearfix blockproductscategory">
+	<h2 class="productscategory_h2">{$categoryProducts|@count} {l s='other products in the same category:' mod='productscategory'}</h2>
+	<div id="{if count($categoryProducts) > 5}productscategory{else}productscategory_noscroll{/if}">
+	{if count($categoryProducts) > 5}<a id="productscategory_scroll_left" title="{l s='Previous' mod='productscategory'}" href="javascript:{ldelim}{rdelim}">{l s='Previous' mod='productscategory'}</a>{/if}
+	<div id="productscategory_list">
+		<ul {if count($categoryProducts) > 5}style="width: {math equation="width * nbImages" width=107 nbImages=$categoryProducts|@count}px"{/if}>
 			{foreach from=$categoryProducts item='categoryProduct' name=categoryProduct}
-                <li class="item">
-                    <a href="{$link->getProductLink($categoryProduct.id_product, $categoryProduct.link_rewrite, $categoryProduct.category, $categoryProduct.ean13)}" class="lnk_img" title="{$categoryProduct.name|htmlspecialchars}"><img src="{$link->getImageLink($categoryProduct.link_rewrite, $categoryProduct.id_image, 'medium_default')}" alt="{$categoryProduct.name|htmlspecialchars}" /></a>
-                        <a class="product_link" href="{$link->getProductLink($categoryProduct.id_product, $categoryProduct.link_rewrite, $categoryProduct.category, $categoryProduct.ean13)}" title="{$categoryProduct.name|htmlspecialchars}">{$categoryProduct.name|truncate:15:'...'|escape:'htmlall':'UTF-8'}</a>
-                    {if $ProdDisplayPrice AND $categoryProduct.show_price == 1 AND !isset($restricted_country_mode) AND !$PS_CATALOG_MODE}
-                    <p class="price_display">
-                        <span class="price">{convertPrice price=$categoryProduct.displayed_price}</span>
-                    </p>
-                    {/if}
-                </li>
+			<li {if count($categoryProducts) < 6}style="width:60px"{/if}>
+				<a href="{$link->getProductLink($categoryProduct.id_product, $categoryProduct.link_rewrite, $categoryProduct.category, $categoryProduct.ean13)}" class="lnk_img" title="{$categoryProduct.name|htmlspecialchars}"><img src="{$link->getImageLink($categoryProduct.link_rewrite, $categoryProduct.id_image, 'medium_default')|escape:'html'}" alt="{$categoryProduct.name|htmlspecialchars}" /></a>
+				<p class="product_name">
+					<a href="{$link->getProductLink($categoryProduct.id_product, $categoryProduct.link_rewrite, $categoryProduct.category, $categoryProduct.ean13)|escape:'html'}" title="{$categoryProduct.name|htmlspecialchars}">{$categoryProduct.name|truncate:14:'...'|escape:'htmlall':'UTF-8'}</a>
+				</p>
+				{if $ProdDisplayPrice AND $categoryProduct.show_price == 1 AND !isset($restricted_country_mode) AND !$PS_CATALOG_MODE}
+				<p class="price_display">
+					<span class="price">{convertPrice price=$categoryProduct.displayed_price}</span>
+				</p>
+				{else}
+				<br />
+				{/if}
+			</li>
 			{/foreach}
-        	</ul>
-
-            	<a class="prev" id="cat_prev" href="#"></a>
-				<a class="next" id="cat_next" href="#"></a>
-            </div>
-</section>
-<script type="text/javascript">
-	$("#carouselproduct").carouFredSel({
-		debug: true,
-		circular: true,
-        infinite: true,
-		responsive: true,
-		align   : "center",
-		width: '100%',
-	    auto	: {
-    		play	: 1,
-	    	timeoutDuration :15000
-	    },
-		
-	    items	: {
-					
-		visible: {
-					min: 2,
-					max: 6
-					 },
-					 width:167,
-		
-		},		
-		scroll	: {
-			items	: 1,
-			pauseOnHover:false
-		},
-		prev	: {
-			button	: "#cat_prev"
-		},
-		next	: {
-			button	: "#cat_next"
-		},
-		swipe: {
-					onMouse: true,
-					onTouch: true
-			   }
-	}, 
-	{
-	    classnames		: {
-		    selected		: "selected",
-		    hidden			: "hidden",
-		    disabled		: "disabled",
-		    paused			: "paused",
-		    stopped			: "stopped"
-	    },
-
-	});
+		</ul>
+	</div>
+	{if count($categoryProducts) > 5}<a id="productscategory_scroll_right" title="{l s='Next' mod='productscategory'}" href="javascript:{ldelim}{rdelim}">{l s='Next' mod='productscategory'}</a>{/if}
+	</div>
+	<script type="text/javascript">
+		$('#productscategory_list').trigger('goto', [{$middlePosition}-3]);
 	</script>
+</div>
 {/if}

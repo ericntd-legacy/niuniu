@@ -24,12 +24,19 @@
 *}
 
 <!-- Block permanent links module -->
-<section id="permanent_links" class="block column_box">
-<h4><span>{l s='Link' mod='blockpermanentlinks'}</span><span class="column_icon_toggle"></span></h4>
-<ul class="store_list toggle_content">
-	<li class="sitemap"><a href="{$link->getPageLink('sitemap')}">{l s='sitemap' mod='blockpermanentlinks'}</a></li>
-	<li class="contact"><a href="{$link->getPageLink('contact', true)}">{l s='contact' mod='blockpermanentlinks'}</a></li>
-	<li class="add_bookmark"><script type="text/javascript">writeBookmarkLink('{$come_from}', '{$meta_title|addslashes|addslashes}', '{l s='bookmark' mod='blockpermanentlinks' js=1}');</script></li>
-</ul>
-</section>
+<div id="permanent_links">
+	<!-- Sitemap -->
+	<div class="sitemap">
+		<a href="{$link->getPageLink('sitemap')|escape:'html'}" title="{l s='Shop sitemap' mod='blockpermanentlinks'}">{l s='Sitemap' mod='blockpermanentlinks'}</a>
+	</div>
+	<!-- Contact -->
+	<div class="contact">
+		<a href="{$link->getPageLink('contact', true)|escape:'html'}" title="{l s='Contact form' mod='blockpermanentlinks'}">{l s='Contact' mod='blockpermanentlinks'}</a>
+	</div>
+	<!-- Bookmark -->
+	<div class="add_bookmark" style="height:30px;">
+		<script type="text/javascript">
+		writeBookmarkLink('{$come_from}', '{$shop_name|addslashes|addslashes}', '{l s='Bookmark this page' mod='blockpermanentlinks' js=1}');</script>&nbsp;
+	</div>
+</div>
 <!-- /Block permanent links module -->

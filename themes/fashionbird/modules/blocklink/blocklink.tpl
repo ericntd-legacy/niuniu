@@ -24,23 +24,21 @@
 *}
 
 <!-- Block links module -->
-<section id="links_block_left" class="block column_box">
-	<h4>
-    <span>
+<div id="links_block_left" class="block">
+	<h4 class="title_block">
 	{if $url}
-		<a href="{$url|escape}">{$title|escape}</a>
+		<a href="{$url|escape}" title="{$title|escape}">{$title|escape}</a>
 	{else}
 		{$title|escape}
 	{/if}
-    </span>
-    <span class="column_icon_toggle"></span>
 	</h4>
-	<ul class="block_content store_list toggle_content">
+	<ul class="block_content bullet">
 	{foreach from=$blocklink_links item=blocklink_link}
 		{if isset($blocklink_link.$lang)} 
-			<li><a href="{$blocklink_link.url|escape}"{if $blocklink_link.newWindow} onclick="window.open(this.href);return false;"{/if}><i class="icon-ok"></i>{$blocklink_link.$lang|escape}</a></li>
+			<li>
+			<a href="{$blocklink_link.url|escape}" title="{$blocklink_link.$lang|escape}" {if $blocklink_link.newWindow} onclick="window.open(this.href);return false;"{/if}>{$blocklink_link.$lang|escape}</a></li>
 		{/if}
 	{/foreach}
 	</ul>
-</section>
+</div>
 <!-- /Block links module -->

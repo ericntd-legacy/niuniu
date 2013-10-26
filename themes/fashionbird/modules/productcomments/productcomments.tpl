@@ -22,7 +22,6 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
-
 <script type="text/javascript">
 var productcomments_controller_url = '{$productcomments_controller_url}';
 var confirm_report_message = "{l s='Are you sure you want report this comment?' mod='productcomments'}";
@@ -72,10 +71,13 @@ var productcomments_url_rewrite = '{$productcomments_url_rewriting_activated}';
 			</div>
 			{/if}
 		{/foreach}
+		<p class="align_center">
+			<a id="new_comment_tab_btn" class="open-comment-form" href="#new_comment_form">{l s='Write your review' mod='productcomments'} !</a>
+		</p>
 	{else}
 		{if ($too_early == false AND ($logged OR $allow_guests))}
 		<p class="align_center">
-			<a id="new_comment_tab_btn"  class="open-comment-form btn btn-inverse"  role="button" data-toggle="modal" data-dynamic="true" href="#new_comment_form">{l s='Be the first to write your review' mod='productcomments'} !</a>
+			<a id="new_comment_tab_btn" class="open-comment-form" href="#new_comment_form">{l s='Be the first to write your review' mod='productcomments'} !</a>
 		</p>
 		{else}
 		<p class="align_center">{l s='No customer comments for the moment.' mod='productcomments'}</p>
@@ -85,31 +87,24 @@ var productcomments_url_rewrite = '{$productcomments_url_rewriting_activated}';
 </div>
 
 <!-- Fancybox -->
-	<div id="new_comment_form"   class="modal hide fade" tabindex="-1" data-width="760">
-
+<div style="display: none;">
+	<div id="new_comment_form">
 		<form action="#">
-         <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
-			<h1 class="title"><span>{l s='Write your review' mod='productcomments'}</span></h1>
-            </div>
-			     <div class="modal-body">
-              <div class="row-fluid ">
-			<div class="product titled_box span6">
-            				<div id="new_comment_form_error" class="alert alert-error" style="display: none;">
-					<ul></ul>
-				</div>
-            <h2><span>{$product->name}</span></h2>
-				<img src="{$link->getImageLink($product->link_rewrite, $productcomment_cover, 'small_default')}"  alt="{$product->name|escape:html:'UTF-8'}" />
+			<h2 class="title">{l s='Write your review' mod='productcomments'}</h2>
+			<div class="product clearfix">
+				<img src="{$link->getImageLink($product->link_rewrite, $productcomment_cover, 'home_default')|escape:'html'}" height="{$homeSize.height}" width="{$homeSize.width}" alt="{$product->name|escape:html:'UTF-8'}" />
 				<div class="product_desc">
-		
+					<p class="product_name"><strong>{$product->name}</strong></p>
 					{$product->description_short}
 				</div>
 			</div>
 
-			<div class="new_comment_form_content titled_box span6">
-			<h2><span>{l s='Write your review' mod='productcomments'}</span></h2>
+			<div class="new_comment_form_content">
+				<h2>{l s='Write your review' mod='productcomments'}</h2>
 
-
+				<div id="new_comment_form_error" class="error" style="display: none;">
+					<ul></ul>
+				</div>
 
 				{if $criterions|@count > 0}
 					<ul id="criterions_list">
@@ -139,18 +134,18 @@ var productcomments_url_rewrite = '{$productcomments_url_rewriting_activated}';
 				<label>{l s='Your name' mod='productcomments'}: <sup class="required">*</sup></label>
 				<input id="commentCustomerName" name="customer_name" type="text" value=""/>
 				{/if}
-		</div> </div></div>
-				<div id="new_comment_form_footer" class=" modal-footer">
+
+				<div id="new_comment_form_footer">
 					<input id="id_product_comment_send" name="id_product" type="hidden" value='{$id_product_comment_form}'></input>
 					<p class="fl required"><sup>*</sup> {l s='Required fields' mod='productcomments'}</p>
 					<p class="fr">
-                         <a  class="btn btn-inverse" data-dismiss="modal" aria-hidden="true" href="#" >{l s='Cancel' mod='productcomments'}</a>
-						<button class="btn btn-inverse" id="submitNewMessage" name="submitMessage" type="submit">{l s='Send' mod='productcomments'}</button>
-                   
+						<button id="submitNewMessage" name="submitMessage" type="submit">{l s='Send' mod='productcomments'}</button>&nbsp;
+						{l s='or' mod='productcomments'}&nbsp;<a href="#" onclick="$.fancybox.close();">{l s='Cancel' mod='productcomments'}</a>
 					</p>
 					<div class="clearfix"></div>
 				</div>
-
+			</div>
 		</form><!-- /end new_comment_form_content -->
 	</div>
+</div>
 <!-- End fancybox -->

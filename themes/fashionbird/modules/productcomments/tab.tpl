@@ -22,4 +22,5 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
-<h3 href="#idTab5" class="idTabHrefShort">{l s='Comments' mod='productcomments'}<span class="icon-toggle"></span></h3>
+
+<li><a href="#idTab5" class="idTabHrefShort">{l s='Comments' mod='productcomments'}</a></li>

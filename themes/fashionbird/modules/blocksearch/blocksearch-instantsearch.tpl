@@ -7,7 +7,6 @@
 				$('#center_column').remove();
 				$('#old_center_column').attr('id', 'center_column');
 				$('#center_column').show();
-$('#old_center_column').next().removeClass('span12').addClass('span9');
 				return false;
 			}
 		}
@@ -21,11 +20,10 @@ $('#old_center_column').next().removeClass('span12').addClass('span9');
 		}
 		
 		$("#search_query_{$blocksearch_type}").keyup(function(){
-			$('#old_center_column').next().removeClass('span12').addClass('span9');
 			if($(this).val().length > 0){
 				stopInstantSearchQueries();
 				instantSearchQuery = $.ajax({
-					url: '{if $search_ssl == 1}{$link->getPageLink('search', true)}{else}{$link->getPageLink('search')}{/if}',
+					url: '{if $search_ssl == 1}{$link->getPageLink('search', true)|addslashes}{else}{$link->getPageLink('search')|addslashes}{/if}',
 					data: {
 						instantSearch: 1,
 						id_lang: {$cookie->id_lang},
@@ -38,9 +36,10 @@ $('#old_center_column').next().removeClass('span12').addClass('span9');
 						{
 							tryToCloseInstantSearch();
 							$('#center_column').attr('id', 'old_center_column');
-							$('#old_center_column').after('<div id="center_column" class="instant ' + $('#old_center_column').attr('class') + '">'+data+'</div>');
-							$('#old_center_column').next().removeClass('span12').addClass('span9');
+							$('#old_center_column').after('<div id="center_column" class="' + $('#old_center_column').attr('class') + '">'+data+'</div>');
 							$('#old_center_column').hide();
+							// Button override
+							ajaxCart.overrideButtonsInThePage();
 							$("#instant_search_results a.close").click(function() {
 								$("#search_query_{$blocksearch_type}").val('');
 								return tryToCloseInstantSearch();
@@ -65,17 +64,17 @@ $('#old_center_column').next().removeClass('span12').addClass('span9');
 		$('document').ready( function() {
 			$("#search_query_{$blocksearch_type}")
 				.autocomplete(
-					'{if $search_ssl == 1}{$link->getPageLink('search', true)}{else}{$link->getPageLink('search')}{/if}', {
+					'{if $search_ssl == 1}{$link->getPageLink('search', true)|addslashes}{else}{$link->getPageLink('search')|addslashes}{/if}', {
 						minChars: 3,
 						max: 10,
-						width: 300,
+						width: 500,
 						selectFirst: false,
 						scroll: false,
 						dataType: "json",
 						formatItem: function(data, i, max, value, term) {
 							return value;
 						},
-							parse: function(data) {
+						parse: function(data) {
 							var mytab = new Array();
 							for (var i = 0; i < data.length; i++)
 								mytab[mytab.length] = { data: data[i], value: data[i].cname + ' > ' + data[i].pname };
@@ -90,7 +89,7 @@ $('#old_center_column').next().removeClass('span12').addClass('span9');
 				.result(function(event, data, formatted) {
 					$('#search_query_{$blocksearch_type}').val(data.pname);
 					document.location.href = data.product_link;
-						})
+				})
 		});
 	// ]]>
 	</script>

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2013-10-13 12:08:08
+<?php /* Smarty version Smarty-3.1.14, created on 2013-10-25 04:42:48
          compiled from "/var/www/html/niuniu/themes/fashionbird/modules/productcomments/productcomments.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:889553816525a1ca8949037-56612547%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1902079417526986480c5408-82125247%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'da7791424bf9aea8ad9094e4301a0bf26d41afae' => 
     array (
       0 => '/var/www/html/niuniu/themes/fashionbird/modules/productcomments/productcomments.tpl',
-      1 => 1373170726,
+      1 => 1377677663,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '889553816525a1ca8949037-56612547',
+  'nocache_hash' => '1902079417526986480c5408-82125247',
   'function' => 
   array (
   ),
@@ -28,17 +28,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'product' => 0,
     'productcomment_cover' => 0,
     'link' => 0,
+    'homeSize' => 0,
     'criterions' => 0,
     'criterion' => 0,
     'id_product_comment_form' => 0,
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.14',
-  'unifunc' => 'content_525a1ca8ad2299_04405914',
+  'unifunc' => 'content_52698648282ba8_86990162',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_525a1ca8ad2299_04405914')) {function content_525a1ca8ad2299_04405914($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_escape')) include '/var/www/html/niuniu/tools/smarty/plugins/modifier.escape.php';
+<?php if ($_valid && !is_callable('content_52698648282ba8_86990162')) {function content_52698648282ba8_86990162($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_escape')) include '/var/www/html/niuniu/tools/smarty/plugins/modifier.escape.php';
 ?>
-
 <script type="text/javascript">
 var productcomments_controller_url = '<?php echo $_smarty_tpl->tpl_vars['productcomments_controller_url']->value;?>
 ';
@@ -136,10 +136,14 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']["i"]['last']       = ($_smart
 			</div>
 			<?php }?>
 		<?php } ?>
+		<p class="align_center">
+			<a id="new_comment_tab_btn" class="open-comment-form" href="#new_comment_form"><?php echo smartyTranslate(array('s'=>'Write your review','mod'=>'productcomments'),$_smarty_tpl);?>
+ !</a>
+		</p>
 	<?php }else{ ?>
 		<?php if (($_smarty_tpl->tpl_vars['too_early']->value==false&&($_smarty_tpl->tpl_vars['logged']->value||$_smarty_tpl->tpl_vars['allow_guests']->value))){?>
 		<p class="align_center">
-			<a id="new_comment_tab_btn"  class="open-comment-form btn btn-inverse"  role="button" data-toggle="modal" data-dynamic="true" href="#new_comment_form"><?php echo smartyTranslate(array('s'=>'Be the first to write your review','mod'=>'productcomments'),$_smarty_tpl);?>
+			<a id="new_comment_tab_btn" class="open-comment-form" href="#new_comment_form"><?php echo smartyTranslate(array('s'=>'Be the first to write your review','mod'=>'productcomments'),$_smarty_tpl);?>
  !</a>
 		</p>
 		<?php }else{ ?>
@@ -151,37 +155,32 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']["i"]['last']       = ($_smart
 </div>
 
 <!-- Fancybox -->
-	<div id="new_comment_form"   class="modal hide fade" tabindex="-1" data-width="760">
-
+<div style="display: none;">
+	<div id="new_comment_form">
 		<form action="#">
-         <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
-			<h1 class="title"><span><?php echo smartyTranslate(array('s'=>'Write your review','mod'=>'productcomments'),$_smarty_tpl);?>
-</span></h1>
-            </div>
-			     <div class="modal-body">
-              <div class="row-fluid ">
-			<div class="product titled_box span6">
-            				<div id="new_comment_form_error" class="alert alert-error" style="display: none;">
-					<ul></ul>
-				</div>
-            <h2><span><?php echo $_smarty_tpl->tpl_vars['product']->value->name;?>
-</span></h2>
-				<img src="<?php echo $_smarty_tpl->tpl_vars['link']->value->getImageLink($_smarty_tpl->tpl_vars['product']->value->link_rewrite,$_smarty_tpl->tpl_vars['productcomment_cover']->value,'small_default');?>
-"  alt="<?php echo smarty_modifier_escape($_smarty_tpl->tpl_vars['product']->value->name, 'html', 'UTF-8');?>
+			<h2 class="title"><?php echo smartyTranslate(array('s'=>'Write your review','mod'=>'productcomments'),$_smarty_tpl);?>
+</h2>
+			<div class="product clearfix">
+				<img src="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['link']->value->getImageLink($_smarty_tpl->tpl_vars['product']->value->link_rewrite,$_smarty_tpl->tpl_vars['productcomment_cover']->value,'home_default'), ENT_QUOTES, 'UTF-8', true);?>
+" height="<?php echo $_smarty_tpl->tpl_vars['homeSize']->value['height'];?>
+" width="<?php echo $_smarty_tpl->tpl_vars['homeSize']->value['width'];?>
+" alt="<?php echo smarty_modifier_escape($_smarty_tpl->tpl_vars['product']->value->name, 'html', 'UTF-8');?>
 " />
 				<div class="product_desc">
-		
+					<p class="product_name"><strong><?php echo $_smarty_tpl->tpl_vars['product']->value->name;?>
+</strong></p>
 					<?php echo $_smarty_tpl->tpl_vars['product']->value->description_short;?>
 
 				</div>
 			</div>
 
-			<div class="new_comment_form_content titled_box span6">
-			<h2><span><?php echo smartyTranslate(array('s'=>'Write your review','mod'=>'productcomments'),$_smarty_tpl);?>
-</span></h2>
+			<div class="new_comment_form_content">
+				<h2><?php echo smartyTranslate(array('s'=>'Write your review','mod'=>'productcomments'),$_smarty_tpl);?>
+</h2>
 
-
+				<div id="new_comment_form_error" class="error" style="display: none;">
+					<ul></ul>
+				</div>
 
 				<?php if (count($_smarty_tpl->tpl_vars['criterions']->value)>0){?>
 					<ul id="criterions_list">
@@ -224,23 +223,24 @@ $_smarty_tpl->tpl_vars['criterion']->_loop = true;
 : <sup class="required">*</sup></label>
 				<input id="commentCustomerName" name="customer_name" type="text" value=""/>
 				<?php }?>
-		</div> </div></div>
-				<div id="new_comment_form_footer" class=" modal-footer">
+
+				<div id="new_comment_form_footer">
 					<input id="id_product_comment_send" name="id_product" type="hidden" value='<?php echo $_smarty_tpl->tpl_vars['id_product_comment_form']->value;?>
 '></input>
 					<p class="fl required"><sup>*</sup> <?php echo smartyTranslate(array('s'=>'Required fields','mod'=>'productcomments'),$_smarty_tpl);?>
 </p>
 					<p class="fr">
-                         <a  class="btn btn-inverse" data-dismiss="modal" aria-hidden="true" href="#" ><?php echo smartyTranslate(array('s'=>'Cancel','mod'=>'productcomments'),$_smarty_tpl);?>
+						<button id="submitNewMessage" name="submitMessage" type="submit"><?php echo smartyTranslate(array('s'=>'Send','mod'=>'productcomments'),$_smarty_tpl);?>
+</button>&nbsp;
+						<?php echo smartyTranslate(array('s'=>'or','mod'=>'productcomments'),$_smarty_tpl);?>
+&nbsp;<a href="#" onclick="$.fancybox.close();"><?php echo smartyTranslate(array('s'=>'Cancel','mod'=>'productcomments'),$_smarty_tpl);?>
 </a>
-						<button class="btn btn-inverse" id="submitNewMessage" name="submitMessage" type="submit"><?php echo smartyTranslate(array('s'=>'Send','mod'=>'productcomments'),$_smarty_tpl);?>
-</button>
-                   
 					</p>
 					<div class="clearfix"></div>
 				</div>
-
+			</div>
 		</form><!-- /end new_comment_form_content -->
 	</div>
+</div>
 <!-- End fancybox -->
 <?php }} ?>

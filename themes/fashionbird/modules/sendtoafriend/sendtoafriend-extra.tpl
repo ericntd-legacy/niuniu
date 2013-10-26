@@ -26,26 +26,31 @@
 <script text="javascript">
 {literal}
 $('document').ready(function(){
-
+	$('#send_friend_button').fancybox({
+		'hideOnContentClick': false
+	});
 
 	$('#sendEmail').click(function(){
 		var datas = [];
-		$('.send_friend_form_content').find('input').each(function(index){
+		$('#send_friend_form_content').find(':input').each(function(index){
 			var o = {};
 			o.key = $(this).attr('name');
 			o.value = $(this).val();
+
 			if (o.value != '')
 				datas.push(o);
 		});
+
 		if (datas.length >= 3)
 		{
 			$.ajax({
 				{/literal}url: "{$module_dir}sendtoafriend_ajax.php",{literal}
-				post: "POST",
-				data: {action: 'sendToMyFriend', secure_key: '{/literal}{$stf_secure_key}{literal}', friend: JSON.stringify(datas)},{/literal}{literal}
+				type: "POST",
+				headers: {"cache-control": "no-cache"},
+				data: {action: 'sendToMyFriend', secure_key: '{/literal}{$stf_secure_key}{literal}', friend: unescape(JSON.stringify(datas).replace(/\\u/g, '%u'))},{/literal}{literal}
 				dataType: "json",
-					success: function(result){
-					$('#send_friend_form').modal('hide');
+				success: function(result){
+					$.fancybox.close();
 				}
 			});
 		}
@@ -56,31 +61,24 @@ $('document').ready(function(){
 {/literal}
 </script>
 <li class="sendtofriend">
-	<a  class="btn-send-friend" href="#send_friend_form"  role="button"  data-toggle="modal" ><i class="icon-envelope"></i>{l s='Send to a friend' mod='sendtoafriend'}</a>
+	<a id="send_friend_button" href="#send_friend_form">{l s='Send to a friend' mod='sendtoafriend'}</a>
 </li>
 
-	<div id="send_friend_form" class="modal hide fade" tabindex="-1" data-width="760">
-    <div class="modal-header">
-     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			<h1 id="myModalLabel"><span>{l s='Send to a friend' mod='sendtoafriend'}</span></h1>
-            </div>
-            
-             <div class="modal-body">
-              <div class="row-fluid ">
-<div class="span6 titled_box">
-		
-<h2><span>{$stf_product->name}</span></h2>
-				<img src="{$link->getImageLink($stf_product->link_rewrite, $stf_product_cover, 'small_default')}"  alt="{$stf_product->name|escape:html:'UTF-8'}" />
+<div style="display: none;">
+	<div id="send_friend_form">
+			<h2 class="title">{l s='Send to a friend' mod='sendtoafriend'}</h2>
+			<div class="product clearfix">
+				<img src="{$link->getImageLink($stf_product->link_rewrite, $stf_product_cover, 'home_default')|escape:'html'}" height="{$homeSize.height}" width="{$homeSize.width}" alt="{$stf_product->name|escape:html:'UTF-8'}" />
 				<div class="product_desc">
-					
-					<span class="send-desc">{$stf_product->description_short}</span>
+					<p class="product_name"><strong>{$stf_product->name}</strong></p>
+					{$stf_product->description_short}
 				</div>
-
 			</div>
-			<div class="send_friend_form_content span6">
-<div id="send_friend_form_error" ></div>
-				<div class="form_container titled_box">
-					<h2><span>{l s='Recipient' mod='sendtoafriend'} :</span></h2>
+			
+			<div class="send_friend_form_content" id="send_friend_form_content">
+				<div id="send_friend_form_error"></div>
+				<div class="form_container">
+					<p class="intro_form">{l s='Recipient' mod='sendtoafriend'} :</p>
 					<p class="text">
 						<label for="friend_name">{l s='Name of your friend' mod='sendtoafriend'} <sup class="required">*</sup> :</label>
 						<input id="friend_name" name="friend_name" type="text" value=""/>
@@ -91,15 +89,11 @@ $('document').ready(function(){
 					</p>
 					<p class="txt_required"><sup class="required">*</sup> {l s='Required fields' mod='sendtoafriend'}</p>
 				</div>
-
-			</div>
-	</div></div>
-    
-    
- 
-		<div class="modal-footer">
+				<p class="submit">
 					<input id="id_product_comment_send" name="id_product" type="hidden" value="{$stf_product->id}" />
-				   <button class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">Close</button>
-					<input id="sendEmail" class="btn btn-inverse" name="sendEmail" type="submit" value="{l s='Send' mod='sendtoafriend'}" />
+					<a href="#" onclick="$.fancybox.close();">{l s='Cancel' mod='sendtoafriend'}</a>&nbsp;{l s='or' mod='sendtoafriend'}&nbsp;
+					<input id="sendEmail" class="button" name="sendEmail" type="submit" value="{l s='Send' mod='sendtoafriend'}" />
+				</p>
+			</div>
 	</div>
 </div>

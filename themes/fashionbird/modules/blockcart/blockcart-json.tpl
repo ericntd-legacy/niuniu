@@ -32,14 +32,13 @@
 		"id":            {$product.id_product},
 		"link":          "{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute)|addslashes|replace:'\\\'':'\''}",
 		"quantity":      {$product.cart_quantity},
-		"id_image": "{$link->getImageLink($product.link_rewrite, $product.id_image, 'medium_default')|addslashes}",
 		"priceByLine":   "{if $priceDisplay == $smarty.const.PS_TAX_EXC}{displayWtPrice|html_entity_decode:2:'UTF-8' p=$product.total}{else}{displayWtPrice|html_entity_decode:2:'UTF-8' p=$product.total_wt}{/if}",
-		"name":          "{$product.name|html_entity_decode:2:'UTF-8'|escape:'htmlall'|truncate:15:'...':true}",
+		"name":          "{$product.name|html_entity_decode:2:'UTF-8'|truncate:15:'...':true|escape:'htmlall'}",
 		"price":         "{if $priceDisplay == $smarty.const.PS_TAX_EXC}{displayWtPrice|html_entity_decode:2:'UTF-8' p=$product.total}{else}{displayWtPrice|html_entity_decode:2:'UTF-8' p=$product.total_wt}{/if}",
 		"price_float":   "{$product.total}",
 		"idCombination": {if isset($product.attributes_small)}{$productAttributeId}{else}0{/if},
 		"idAddressDelivery": {if isset($product.id_address_delivery)}{$product.id_address_delivery}{else}0{/if},
-        "is_gift" : {if isset($product.is_gift) && $product.is_gift}1{else}0{/if},
+		"is_gift" : {if isset($product.is_gift) && $product.is_gift}1{else}0{/if},
 {if isset($product.attributes_small)}
 		"hasAttributes": true,
 		"attributes":    "{$product.attributes_small|addslashes|replace:'\\\'':'\''}",
@@ -84,7 +83,7 @@
 		"description":     "{$discount.description|addslashes|replace:'\\\'':'\''}",
 		"nameDescription": "{$discount.name|cat:' : '|cat:$discount.description|truncate:18:'...'|addslashes|replace:'\\\'':'\''}",
 		"code":            "{$discount.code}",
-		"link":            "{$link->getPageLink("$order_process", true, NULL, "deleteDiscount={$discount.id_discount}")}",
+		"link":            "{$link->getPageLink("$order_process", true, NULL, "deleteDiscount={$discount.id_discount}")|escape:'html'}",
 		"price":           "{if $priceDisplay == 1}{convertPrice|html_entity_decode:2:'UTF-8' price=$discount.value_tax_exc}{else}{convertPrice|html_entity_decode:2:'UTF-8' price=$discount.value_real}{/if}",
 		"price_float":     "{if $priceDisplay == 1}{$discount.value_tax_exc}{else}{$discount.value_real}{/if}"
 	{rdelim}

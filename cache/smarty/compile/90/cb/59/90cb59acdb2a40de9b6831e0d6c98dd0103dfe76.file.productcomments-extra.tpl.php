@@ -1,33 +1,33 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2013-10-13 12:08:08
+<?php /* Smarty version Smarty-3.1.14, created on 2013-10-25 04:42:47
          compiled from "/var/www/html/niuniu/themes/fashionbird/modules/productcomments/productcomments-extra.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:111207881525a1ca8875c04-00697194%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:184771988852698647dbad73-95938346%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '90cb59acdb2a40de9b6831e0d6c98dd0103dfe76' => 
     array (
       0 => '/var/www/html/niuniu/themes/fashionbird/modules/productcomments/productcomments-extra.tpl',
-      1 => 1373170726,
+      1 => 1377677663,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '111207881525a1ca8875c04-00697194',
+  'nocache_hash' => '184771988852698647dbad73-95938346',
   'function' => 
   array (
   ),
   'variables' => 
   array (
+    'logged' => 0,
     'nbComments' => 0,
     'averageTotal' => 0,
     'too_early' => 0,
-    'logged' => 0,
     'allow_guests' => 0,
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.14',
-  'unifunc' => 'content_525a1ca88d02b6_38845546',
+  'unifunc' => 'content_52698647ee7274_83636080',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_525a1ca88d02b6_38845546')) {function content_525a1ca88d02b6_38845546($_smarty_tpl) {?> 
+<?php if ($_valid && !is_callable('content_52698647ee7274_83636080')) {function content_52698647ee7274_83636080($_smarty_tpl) {?> 
 <script type="text/javascript">
 $(function(){
 	$('a[href=#idTab5]').click(function(){
@@ -40,6 +40,8 @@ $(function(){
 });
 </script>
 
+<?php if ($_smarty_tpl->tpl_vars['logged']->value==1||$_smarty_tpl->tpl_vars['nbComments']->value!=0){?>
+</div><!-- Close the OosHook -->
 <div id="product_comments_block_extra">
 	<?php if ($_smarty_tpl->tpl_vars['nbComments']->value!=0){?>
 	<div class="comments_note">
@@ -86,16 +88,17 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']["i"]['last']       = ($_smart
 
 	<div class="comments_advices">
 		<?php if ($_smarty_tpl->tpl_vars['nbComments']->value!=0){?>
-		<a class="read_rew" href="#idTab5"><?php echo smartyTranslate(array('s'=>'Read user reviews','mod'=>'productcomments'),$_smarty_tpl);?>
+		<a href="#idTab5"><?php echo smartyTranslate(array('s'=>'Read user reviews','mod'=>'productcomments'),$_smarty_tpl);?>
  (<?php echo $_smarty_tpl->tpl_vars['nbComments']->value;?>
-)</a>
+)</a><br/>
 		<?php }?>
-        <span></span>
 		<?php if (($_smarty_tpl->tpl_vars['too_early']->value==false&&($_smarty_tpl->tpl_vars['logged']->value||$_smarty_tpl->tpl_vars['allow_guests']->value))){?>
-		<a class="open-comment-form" href="#new_comment_form"  role="button"  data-toggle="modal" ><?php echo smartyTranslate(array('s'=>'Write your review','mod'=>'productcomments'),$_smarty_tpl);?>
+		<a class="open-comment-form" href="#new_comment_form"><?php echo smartyTranslate(array('s'=>'Write your review','mod'=>'productcomments'),$_smarty_tpl);?>
 </a>
 		<?php }?>
 	</div>
 </div>
+<div><!-- new div for the next content if any -->
+<?php }?>
 <!--  /Module ProductComments -->
 <?php }} ?>

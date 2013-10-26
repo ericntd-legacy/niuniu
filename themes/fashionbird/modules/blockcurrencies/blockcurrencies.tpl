@@ -24,29 +24,40 @@
 *}
 
 <!-- Block currencies module -->
-<section id="currencies_block_top" class="header-box">
-<form id="setCurrency" action="{$request_uri}" method="post">
-		{*<label>	{l s='Currency' mod='blockcurrencies'}</label>*}
-		<p  class="inner-carrencies">
-        <input type="hidden" name="id_currency" id="id_currency" value=""/>
-		<input type="hidden" name="SubmitCurrency" value="" />
-        {$blockcurrencies_sign}<span class="arrow_header_top"></span>    
+<script type="text/javascript">
+$(document).ready(function () {
+	$("#setCurrency").mouseover(function(){
+		$(this).addClass("countries_hover");
+		$(".currencies_ul").addClass("currencies_ul_hover");
+	});
+	$("#setCurrency").mouseout(function(){
+		$(this).removeClass("countries_hover");
+		$(".currencies_ul").removeClass("currencies_ul_hover");
+	});
+
+	$('ul#first-currencies li:not(.selected)').css('opacity', 0.3);
+	$('ul#first-currencies li:not(.selected)').hover(function(){
+		$(this).css('opacity', 1);
+	}, function(){
+		$(this).css('opacity', 0.3);
+	});
+});
+</script>
+
+<div id="currencies_block_top">
+	<form id="setCurrency" action="{$request_uri}" method="post">
+		<p>
+			<input type="hidden" name="id_currency" id="id_currency" value=""/>
+			<input type="hidden" name="SubmitCurrency" value="" />
+			{l s='Currency' mod='blockcurrencies'} : {$blockcurrencies_sign}
 		</p>
-		<ul id="first-currencies" class="currencies_ul list_header">
+		<ul id="first-currencies" class="currencies_ul">
 			{foreach from=$currencies key=k item=f_currency}
 				<li {if $cookie->id_currency == $f_currency.id_currency}class="selected"{/if}>
-                {if $cookie->id_currency == $f_currency.id_currency}
-                            <span>{$f_currency.sign}</span>{$f_currency.name}
-                {else}
-					<a href="javascript:setCurrency({$f_currency.id_currency});" title="{$f_currency.name}"><span>{$f_currency.sign}</span>{$f_currency.name}</a>
-                    
-        
-                    
-                    			
-                    {/if}
+					<a href="javascript:setCurrency({$f_currency.id_currency});" title="{$f_currency.name}" rel="nofollow">{$f_currency.sign}</a>
 				</li>
 			{/foreach}
 		</ul>
 	</form>
-</section>
+</div>
 <!-- /Block currencies module -->

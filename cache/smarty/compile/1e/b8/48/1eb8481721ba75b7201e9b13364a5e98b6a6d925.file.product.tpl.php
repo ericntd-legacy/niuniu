@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2013-10-13 12:08:08
+<?php /* Smarty version Smarty-3.1.14, created on 2013-10-25 04:42:47
          compiled from "/var/www/html/niuniu/themes/fashionbird/modules/loyalty/product.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1627592622525a1ca87b5be6-06295349%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:86803747452698647ae6103-16339671%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1627592622525a1ca87b5be6-06295349',
+  'nocache_hash' => '86803747452698647ae6103-16339671',
   'function' => 
   array (
   ),
@@ -28,9 +28,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.14',
-  'unifunc' => 'content_525a1ca885be76_83502081',
+  'unifunc' => 'content_52698647bdb3f3_92789297',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_525a1ca885be76_83502081')) {function content_525a1ca885be76_83502081($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_52698647bdb3f3_92789297')) {function content_52698647bdb3f3_92789297($_smarty_tpl) {?>
 <script type="text/javascript">
 var point_rate = <?php echo $_smarty_tpl->tpl_vars['point_rate']->value;?>
 ;

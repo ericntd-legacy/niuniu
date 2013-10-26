@@ -24,19 +24,21 @@
 *}
 
 <!-- Block Viewed products -->
-<section id="viewed-products_block_left" class="block products_block column_box">
-	<h4><span>{l s='Viewed products' mod='blockviewed'}</span><span class="column_icon_toggle"></span></h4>
-	<div class="block_content toggle_content">
-		<ul class="products ">
+<div id="viewed-products_block_left" class="block products_block">
+	<h4 class="title_block">{l s='Viewed products' mod='blockviewed'}</h4>
+	<div class="block_content">
+		<ul class="products clearfix">
 			{foreach from=$productsViewedObj item=viewedProduct name=myLoop}
-				<li class="shop_box  clearfix">
-					<a class="products_block_img bordercolor" href="{$viewedProduct->product_link}" title="{l s='More about' mod='blockviewed'} {$viewedProduct->name|escape:html:'UTF-8'}"><img src="{$link->getImageLink($viewedProduct->link_rewrite, $viewedProduct->cover, 'small_default')}" alt="{$viewedProduct->legend|escape:html:'UTF-8'}" /></a>
-					<div>
-	<h5><a class="product_link" href="{$viewedProduct->product_link}" title="{l s='More about' mod='blockviewed'} {$viewedProduct->name|escape:html:'UTF-8'}">{$viewedProduct->name|truncate:25:'...'|escape:html:'UTF-8'}</a></h5>
-	<p class="product_descr">{$viewedProduct->description_short|strip_tags:'UTF-8'|truncate:75}</p>
-     </div> 
+				<li class="clearfix{if $smarty.foreach.myLoop.last} last_item{elseif $smarty.foreach.myLoop.first} first_item{else} item{/if}">
+					<a href="{$viewedProduct->product_link|escape:'html'}" title="{l s='About' mod='blockviewed'} {$viewedProduct->name|escape:html:'UTF-8'}" class="content_img">
+					<img src="{if isset($viewedProduct->id_image) && $viewedProduct->id_image}{$link->getImageLink($viewedProduct->link_rewrite, $viewedProduct->cover, 'medium_default')}{else}{$img_prod_dir}{$lang_iso}-default-medium_default.jpg{/if}" alt="{$viewedProduct->legend|escape:html:'UTF-8'}" />
+					</a>
+					<div class="text_desc">
+						<h5 class="s_title_block"><a href="{$viewedProduct->product_link|escape:'html'}" title="{l s='About' mod='blockviewed'} {$viewedProduct->name|escape:html:'UTF-8'}">{$viewedProduct->name|truncate:14:'...'|escape:html:'UTF-8'}</a></h5>
+						<p><a href="{$viewedProduct->product_link|escape:'html'}" title="{l s='About' mod='blockviewed'} {$viewedProduct->name|escape:html:'UTF-8'}">{$viewedProduct->description_short|strip_tags:'UTF-8'|truncate:44}</a></p>
+					</div>
 				</li>
 			{/foreach}
 		</ul>
 	</div>
-</section>
+</div>

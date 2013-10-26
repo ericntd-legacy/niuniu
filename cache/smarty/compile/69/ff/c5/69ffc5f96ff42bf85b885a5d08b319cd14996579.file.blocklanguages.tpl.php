@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2013-10-13 11:58:17
+<?php /* Smarty version Smarty-3.1.14, created on 2013-10-24 22:32:40
          compiled from "/var/www/html/niuniu/themes/fashionbird/modules/blocklanguages/blocklanguages.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:74641481525a1a59c1d2f2-14238869%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:162398901352692f881a7d26-64248644%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '69ffc5f96ff42bf85b885a5d08b319cd14996579' => 
     array (
       0 => '/var/www/html/niuniu/themes/fashionbird/modules/blocklanguages/blocklanguages.tpl',
-      1 => 1373170726,
+      1 => 1377677663,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '74641481525a1a59c1d2f2-14238869',
+  'nocache_hash' => '162398901352692f881a7d26-64248644',
   'function' => 
   array (
   ),
@@ -20,46 +20,47 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'languages' => 0,
     'language' => 0,
     'lang_iso' => 0,
+    'img_lang_dir' => 0,
     'indice_lang' => 0,
     'lang_rewrite_urls' => 0,
     'link' => 0,
-    'img_lang_dir' => 0,
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.14',
-  'unifunc' => 'content_525a1a59cf1793_54753946',
+  'unifunc' => 'content_52692f882a18d6_22714253',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_525a1a59cf1793_54753946')) {function content_525a1a59cf1793_54753946($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_52692f882a18d6_22714253')) {function content_52692f882a18d6_22714253($_smarty_tpl) {?>
 
 <!-- Block languages module -->
 <?php if (count($_smarty_tpl->tpl_vars['languages']->value)>1){?>
-<section id="languages_block_top" class="header-box">
-	<div id="countries_2">
-    	
-        <?php  $_smarty_tpl->tpl_vars['language'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['language']->_loop = false;
+<div id="languages_block_top">
+	<div id="countries">
+	
+<?php  $_smarty_tpl->tpl_vars['language'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['language']->_loop = false;
  $_smarty_tpl->tpl_vars['k'] = new Smarty_Variable;
  $_from = $_smarty_tpl->tpl_vars['languages']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['language']->key => $_smarty_tpl->tpl_vars['language']->value){
 $_smarty_tpl->tpl_vars['language']->_loop = true;
  $_smarty_tpl->tpl_vars['k']->value = $_smarty_tpl->tpl_vars['language']->key;
 ?>
-            <?php if ($_smarty_tpl->tpl_vars['language']->value['iso_code']==$_smarty_tpl->tpl_vars['lang_iso']->value){?>
-                <p class="selected_language">
-                  <?php echo $_smarty_tpl->tpl_vars['language']->value['iso_code'];?>
-
-                  <span class="arrow_header_top"></span>
-                </p>
-            <?php }?>
-        <?php } ?>
-            <ul id="first-languages" class="countries_ul list_header">
-            <?php  $_smarty_tpl->tpl_vars['language'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['language']->_loop = false;
+	<?php if ($_smarty_tpl->tpl_vars['language']->value['iso_code']==$_smarty_tpl->tpl_vars['lang_iso']->value){?>
+		<p class="selected_language">
+			<img src="<?php echo $_smarty_tpl->tpl_vars['img_lang_dir']->value;?>
+<?php echo $_smarty_tpl->tpl_vars['language']->value['id_lang'];?>
+.jpg" alt="<?php echo $_smarty_tpl->tpl_vars['language']->value['iso_code'];?>
+" width="16" height="11" />
+		</p>
+	<?php }?>
+<?php } ?>
+		<ul id="first-languages" class="countries_ul">
+		<?php  $_smarty_tpl->tpl_vars['language'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['language']->_loop = false;
  $_smarty_tpl->tpl_vars['k'] = new Smarty_Variable;
  $_from = $_smarty_tpl->tpl_vars['languages']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['language']->key => $_smarty_tpl->tpl_vars['language']->value){
 $_smarty_tpl->tpl_vars['language']->_loop = true;
  $_smarty_tpl->tpl_vars['k']->value = $_smarty_tpl->tpl_vars['language']->key;
 ?>
-                <li <?php if ($_smarty_tpl->tpl_vars['language']->value['iso_code']==$_smarty_tpl->tpl_vars['lang_iso']->value){?>class="selected"<?php }?>>
+			<li <?php if ($_smarty_tpl->tpl_vars['language']->value['iso_code']==$_smarty_tpl->tpl_vars['lang_iso']->value){?>class="selected_language"<?php }?>>
 			<?php if ($_smarty_tpl->tpl_vars['language']->value['iso_code']!=$_smarty_tpl->tpl_vars['lang_iso']->value){?>
 				<?php $_smarty_tpl->tpl_vars['indice_lang'] = new Smarty_variable($_smarty_tpl->tpl_vars['language']->value['id_lang'], null, 0);?>
 				<?php if (isset($_smarty_tpl->tpl_vars['lang_rewrite_urls']->value[$_smarty_tpl->tpl_vars['indice_lang']->value])){?>
@@ -73,30 +74,31 @@ $_smarty_tpl->tpl_vars['language']->_loop = true;
 
 				<?php }?>
 			<?php }?>
-			<img src="<?php echo $_smarty_tpl->tpl_vars['img_lang_dir']->value;?>
+					<img src="<?php echo $_smarty_tpl->tpl_vars['img_lang_dir']->value;?>
 <?php echo $_smarty_tpl->tpl_vars['language']->value['id_lang'];?>
 .jpg" alt="<?php echo $_smarty_tpl->tpl_vars['language']->value['iso_code'];?>
-" width="26" height="16" /><span><?php echo $_smarty_tpl->tpl_vars['language']->value['name'];?>
-</span>
-            <?php if ($_smarty_tpl->tpl_vars['language']->value['iso_code']!=$_smarty_tpl->tpl_vars['lang_iso']->value){?>
+" width="16" height="11" />
+			<?php if ($_smarty_tpl->tpl_vars['language']->value['iso_code']!=$_smarty_tpl->tpl_vars['lang_iso']->value){?>
 				</a>
 			<?php }?>
-                </li>
-            <?php } ?>
-            </ul>
+			</li>
+		<?php } ?>
+		</ul>
 	</div>
-</section>
+</div>
+
 <script type="text/javascript">
-$(document).ready(function(){
-$('#countries_2 .countries_ul li span').each(function() {
-	var h = $(this).html();
-	var index = h.indexOf(' ');
-		if(index == -1) {
-			index = h.length;
-		}
-	$(this).html('<span class="firstWord">'+ h.substring(index, h.length) + '</span>' + h.substring(0, index));
+$(document).ready(function () {
+	$("#countries").mouseover(function(){
+		$(this).addClass("countries_hover");
+		$(".countries_ul").addClass("countries_ul_hover");
+	});
+	$("#countries").mouseout(function(){
+		$(this).removeClass("countries_hover");
+		$(".countries_ul").removeClass("countries_ul_hover");
+	});
+
 });
-}); 
 </script>
 <?php }?>
 <!-- /Block languages module -->

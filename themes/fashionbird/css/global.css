@@ -268,8 +268,8 @@ SUBCATEGORIES
 /* ************************************************************************************************
 		HEADER
 ************************************************************************************************ */
-#header {position:relative;z-index:101;padding:0px 0px 30px 0px;}
-#header_logo {display:block;position:absolute;left:0px;top:41px;}
+#header {position:relative;z-index:101;padding:0px 0px 0px 0px;}
+#header_logo {display:block;position:absolute;left:0px;top:47px;}
 #header-inner{ padding:169px 0px 0px 0px; position:relative;}
 
 
@@ -2172,5 +2172,15 @@ h2, h3 { page-break-after: avoid; }
 .hide-on-print { display: none !important; }
 .print-only { display: block !important; }
 .hide-for-print { display: none !important; }
-.show-for-print { display: inherit !important; } 
+.show-for-print { display: inherit !important; }
+
+/* Homepage slider*/
+.bx-window {
+  float:left;
+}
+
+/* Header
+ */
+#header {
+  padding: 0px 0px 0px 0px;
 }

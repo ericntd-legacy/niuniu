@@ -22,21 +22,34 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
+
 <!-- Block categories module -->
-<section class="block block_category_footer">
-        <h4>{l s='Categories' mod='blockcategories'}</h4>
-		<ul class="toggle_content list-footer tree {if $isDhtml}dhtml{/if}">
+<div class="blockcategories_footer">
+	<h4 class="title_block">{l s='Categories' mod='blockcategories'}</h4>
+<div class="category_footer" style="float:left;clear:none;width:{$widthColumn}%">
+	<div style="float:left" class="list">
+		<ul class="tree {if $isDhtml}dhtml{/if}">
+	
 		{foreach from=$blockCategTree.children item=child name=blockCategTree}
 			{if $smarty.foreach.blockCategTree.last}
 				{include file="$branche_tpl_path" node=$child last='true'}
 			{else}
 				{include file="$branche_tpl_path" node=$child}
 			{/if}
+		
 			{if ($smarty.foreach.blockCategTree.iteration mod $numberColumn) == 0 AND !$smarty.foreach.blockCategTree.last}
 		</ul>
-	<ul class="list-footer tree {if $isDhtml}dhtml{/if}">
+	</div>
+</div>
+
+<div class="category_footer" style="float:left;clear:none;width:{$widthColumn}%">
+		<div style="float:left" class="list">
+		<ul class="tree {if $isDhtml}dhtml{/if}">
 			{/if}
 			{/foreach}
 		</ul>
-</section>
+	</div>
+</div>
+<br class="clear"/>
+</div>
 <!-- /Block categories module -->

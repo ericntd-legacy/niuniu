@@ -35,6 +35,8 @@ $(function(){
 });
 </script>
 
+{if $logged == 1 || $nbComments != 0}
+</div><!-- Close the OosHook -->
 <div id="product_comments_block_extra">
 	{if $nbComments != 0}
 	<div class="comments_note">
@@ -53,12 +55,13 @@ $(function(){
 
 	<div class="comments_advices">
 		{if $nbComments != 0}
-		<a class="read_rew" href="#idTab5">{l s='Read user reviews' mod='productcomments'} ({$nbComments})</a>
+		<a href="#idTab5">{l s='Read user reviews' mod='productcomments'} ({$nbComments})</a><br/>
 		{/if}
-        <span></span>
 		{if ($too_early == false AND ($logged OR $allow_guests))}
-		<a class="open-comment-form" href="#new_comment_form"  role="button"  data-toggle="modal" >{l s='Write your review' mod='productcomments'}</a>
+		<a class="open-comment-form" href="#new_comment_form">{l s='Write your review' mod='productcomments'}</a>
 		{/if}
 	</div>
 </div>
+<div><!-- new div for the next content if any -->
+{/if}
 <!--  /Module ProductComments -->

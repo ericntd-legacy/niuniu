@@ -24,11 +24,11 @@
 *}
 
 <!-- Block RSS module-->
-<section id="rss_block_left"  class="block column_box">
-	<h4><span>{$title}</span><span class="column_icon_toggle"></span></h4>
-	<div class="block_content toggle_content">
+<div id="rss_block_left" class="block">
+	<h4 class="title_block">{$title}</h4>
+	<div class="block_content">
 		{if $rss_links}
-			<ul class="store_list">
+			<ul>
 				{foreach from=$rss_links item='rss_link'}
 					<li><a href="{$rss_link.url}">{$rss_link.title}</a></li>
 				{/foreach}
@@ -37,5 +37,5 @@
 			<p>{l s='No RSS feed added' mod='blockrss'}</p>
 		{/if}
 	</div>
-</section>
+</div>
 <!-- /Block RSS module-->
