@@ -5,7 +5,12 @@ GENERAL STYLE
 * { margin:0; padding:0; }
 ul, ol { list-style:none; margin:0;}
 html {margin: 0;padding: 0; outline: 0!important;}
-body {font:13px/1.6 'Times New Roman',Arial, Helvetica, sans-serif; color:#7a7a7a;margin: 0;padding: 0;}
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color:#7a7a7a;
+	font-size: 1em;
+	margin: 0;padding: 0;
+}
 body{ min-width:320px; position: relative;}
 h1 {font-size: 24px;line-height:1.5;margin-bottom: 14px;color:#1c1c1c; }
 h2 {font-size: 20px;line-height:1.5;margin-bottom: 12px;color:#1c1c1c;}
@@ -29,7 +34,7 @@ html {width: 100%;}
 /* ************************************************************************************************
 STRUCTURE
 ************************************************************************************************ */
-#wrapp{ position:relative; overflow:hidden; width:100%; border-top:solid 10px #000}
+#wrapp{ position:relative; width:100%; border-top:solid 10px #000}
 #wrapp_2{ margin:0 auto;  padding: 0;text-align: left;}
 #right_column{padding:31px 0px 0px 0px;}
 #product #right_column {padding:35px 0 0 0;}
@@ -42,10 +47,16 @@ body#index #center_column {padding-bottom:0px;}
 /* ************************************************************************************************
 MAIN STYLE STORE
 ************************************************************************************************ */
-h1 {color:#1c1c1c; font-size:25px; text-transform:uppercase;font-weight:bold;padding:15px 0px 5px 0px; font-family:"Times New Roman", Arial, Helvetica, sans-serif; margin:0 0 20px 0; border-bottom:6px double #000000;}
+h1 {color:#1c1c1c;
+	font-size:25px;
+	text-transform:uppercase;
+	font-weight:bold;
+	padding:15px 0px 5px 0px;
+	margin:0 0 20px 0; border-bottom:6px double #000000;}
 h1 span{ padding-right:5px;}
 h1 strong{padding:5px 0 0 0;font-size:14px; line-height:20px;font-weight:normal; color:#333; font-style:italic; display:block; white-space:nowrap;}
-.notification {font-sise:16px;font-family:Georgia, "Times New Roman", Times, serif;letter-spacing:1px;padding: 20px 20px 20px 60px;border-radius: 4px;}
+.notification {font-sise:16px;
+	letter-spacing:1px;padding: 20px 20px 20px 60px;border-radius: 4px;}
 .notification strong {margin-right: 5px;}
 .notification p {font-size: 11px;padding: 0px;margin: 0px;color: #333333;}
 .notification_warning {background-image: url(../img/error.png);background-position: 15px center;background-repeat: no-repeat;border: 2px solid #FFC237;background-color: #FFEAA8;color: #826200;}
@@ -268,8 +279,9 @@ SUBCATEGORIES
 /* ************************************************************************************************
 		HEADER
 ************************************************************************************************ */
-#header {position:relative;z-index:101;padding:0px 0px 0px 0px;}
-#header_logo {display:block;position:absolute;left:0px;top:47px;}
+#header {position:relative;z-index:101;
+	padding:0px 0px 0px 0px;}
+#header_logo {display:block;position:absolute;left:0px;top:41px;}
 #header-inner{ padding:169px 0px 0px 0px; position:relative;}
 
 
@@ -278,7 +290,13 @@ SUBCATEGORIES
 ************************************************************************************************ */
 .blockpermanentlinks-header {position:absolute;left:0px;top:145px; }
 #header_links li {float:left; padding:0px 15px 0px 0px; margin:0;}
-#header_links li a {color:#7a7a7a;text-decoration:none;font-size:12px;font-weight:bold;font-family:"Times New Roman", Arial, Helvetica, sans-serif; line-height:1.2em;text-transform: uppercase;}
+#header_links li a {
+	color:#7a7a7a;
+	text-decoration:none;
+	font-weight:normal;
+	line-height:1;
+	text-transform: uppercase;
+}
 #header_links li a:hover, 
 body#index a.header_links_home,
 #sitemap a.header_links_sitemap, 
@@ -364,7 +382,8 @@ body#index a.header_links_home,
 		MAIN STYLE BOX COLUMN
 ************************************************************************************************ */
 .column .block {margin:0 0 0px 0;}
-.column .block h4 {color:#1c1c1c; font-size:17px; text-transform:uppercase;font-weight:bold;padding:15px 0px 5px 0px; font-family:"Times new Roman", Arial, Helvetica, sans-serif; margin:0 0 20px 0; border-bottom:3px double #000000;}
+.column .block h4 {color:#1c1c1c; font-size:17px; text-transform:uppercase;font-weight:bold;padding:15px 0px 5px 0px;
+	margin:0 0 20px 0; border-bottom:3px double #000000;}
 .column .block h4 span{ background: #ccc; padding-right: 5px; color: #333333; font-weight: bold; display: block; padding: 5px;}
 .column .block h4 a:hover {color:#8b12a0;}
 .column .block .block_content .button_large {margin:20px 0px 0px 0;}
@@ -615,7 +634,7 @@ opacity:0; filter:alpha(opacity=0); -moz-transition: opacity 300ms ease, left 30
 /* ************************************************************************************************
 		BREADCRUMB
 ************************************************************************************************ */
-.breadcrumb {margin:-10px 0 0px 0px;background:none;border-radius:0px;padding:7px 0 7px 0px;background:#f8f8f8;width:1170px; font-size:14px; }
+.breadcrumb {margin:-10px 0 0px 0px;background:none;border-radius:0px;padding:7px 0 7px 0px;background:#f8f8f8;width:940px; font-size:14px; }
 .breadcrumb span{ display:inline;}
 .breadcrumb a {font-size:14px;line-height:22px;}
 .breadcrumb a i{ vertical-align:-4px;}
@@ -2172,15 +2191,5 @@ h2, h3 { page-break-after: avoid; }
 .hide-on-print { display: none !important; }
 .print-only { display: block !important; }
 .hide-for-print { display: none !important; }
-.show-for-print { display: inherit !important; }
-
-/* Homepage slider*/
-.bx-window {
-  float:left;
-}
-
-/* Header
- */
-#header {
-  padding: 0px 0px 0px 0px;
+.show-for-print { display: inherit !important; } 
 }

@@ -1,8 +1,8 @@
 <?php
 define('_DB_SERVER_', 'localhost');
-define('_DB_NAME_', 'niuniu');
-define('_DB_USER_', 'niuniu');
-define('_DB_PASSWD_', 'niuniu');
+define('_DB_NAME_', 'niuniu2');
+define('_DB_USER_', 'niuniu2');
+define('_DB_PASSWD_', 'niuniu2');
 define('_DB_PREFIX_', 'ps_');
 define('_MYSQL_ENGINE_', 'InnoDB');
 define('_PS_CACHING_SYSTEM_', 'CacheMemcache');
@@ -16,3 +16,5 @@ define('_PS_CREATION_DATE_', '2013-10-06');
 define('_PS_VERSION_', '1.5.5.0');
 define('_RIJNDAEL_KEY_', 'OmYkRNB4JW76iFpExHqpb0w1oaydM0rn');
 define('_RIJNDAEL_IV_', 'ny/dybTQro3F1Bs1nOjsNQ==');
+
+//define('_PS_BASE_URL', 'http://localhost:8888/niuniu');
