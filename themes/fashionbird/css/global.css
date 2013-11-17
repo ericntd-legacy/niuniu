@@ -542,7 +542,11 @@ HOMEFEATURED and Home Block best sellers
 .homefeatured:before, .homefeatured:after {content:"";display:table}
 .homefeatured:after {clear:both}
 .homefeatured ul {list-style-type:none;}
-.homefeatured ul li {}
+.homefeatured ul li {
+				display: block;
+				float: left;
+				height: 410px;
+}
 .homefeatured img {margin:0 auto;display:block;max-width:100%}
 .homefeatured p {overflow:hidden; padding:0 0 0 0; margin:0 0 0 0;}
 .homefeatured .price {display:block;padding-bottom:1em}
