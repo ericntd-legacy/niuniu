@@ -1,6 +1,6 @@
  .ul.nav ul {margin: 0;padding: 0;list-style: none;}
 
-ul.nav ul {margin: 20px 0 0 0;opacity: 0;visibility: hidden;position: absolute;top:48px;left: 0;z-index: 1;background: #444;-webkit-transition: all .2s ease-in-out;-moz-transition: all .2s ease-in-out;-ms-transition: all .2s ease-in-out;-o-transition: all .2s ease-in-out;transition: all .2s ease-in-out;}
+ul.nav ul {margin: 20px 0 0 0;opacity: 0;visibility: hidden;position: absolute;top:48px;z-index: 1;background: #444;-webkit-transition: all .2s ease-in-out;-moz-transition: all .2s ease-in-out;-ms-transition: all .2s ease-in-out;-o-transition: all .2s ease-in-out;transition: all .2s ease-in-out;}
 ul.nav li:hover > ul {opacity: 1;visibility: visible;margin: 0;}
 ul.nav ul ul {top: 0;left:220px;margin: 0 0 0 20px;}
 ul.nav ul li {float: none;display: block;border: 0;}
